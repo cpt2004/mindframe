@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Signup</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div class="header">
+        <div class="title">
+            <a href="{% url 'index' %}"><h1>MindFrame</h1></a>
+            <p>"Framing Ideas, One Thought at a Time"</p>        
+        </div>
+    </div>
+
+    <div class="signup_section">
+        <p>Already have an account ? <a href="{% url 'user_login' %}">Login</a></p>
+
+        <h1>Sign Up</h1>
+        <form action="" method="post">
+            {% csrf_token %}
+
+            {% if message %}
+                <p style="color: red;"> {{ message }} </p>
+            {% endif %}
+
+            <div>
+               <label for="firstname">First Name</label> <br>
+                <input id="firstname" name="firstname" type="text" required/>
+            </div>
+                        
+            <div>
+                <label for="lastname">Last Name</label> <br>
+                <input id="lastname" name="lastname" type="text" required/>
+            </div>
+
+            <div>
+                <label for="username">Set Username</label> <br>
+                <input id="username" name="username" type="text" required/>
+            </div>
+
+            <div>
+                <label for="password">Set Password</label> <br>
+                <input id="password" name="password" type="password" required/>
+            </div>
+
+            <div>
+                <label for="repet_password">Re-enter Password</label> <br>
+                <input id="repeat_password" name="repeat_password" type="password" required/>
+            </div>
+
+            <div>
+                <label for="email">Email ID</label> <br>
+                <input id="email" name="email" type="email" required/>
+            </div>
+
+                <button type="submit"> Create New Account</button>
+        </form>
+    </div>
+    <hr>
+    <p style="margin: 0; text-align: center;">MindFrame &middot; 2024</p>
+</body>
+</html>

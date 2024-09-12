@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div class="header">
+        <div class="title">
+            <a href="{% url 'index' %}"><h1>MindFrame</h1></a>
+            <p>"Framing Ideas, One Thought at a Time"</p>        
+        </div>
+
+        {% if user.is_authenticated %}
+
+        <div class="user_menu">
+            <p>
+                Welcome
+
+                {% if user.first_name %}
+                    {{ user.first_name }} 
+                {% else %}
+                    {{ user.username }}
+                {% endif %}
+            </p>
+            <div>
+                <a href="{% url 'delete_user' %}" onclick="return confirm('Warning: Deleting your account is permanent. Once deleted, it cannot be recovered. Proceed?');">Delete Account</a>
+                <a href="{% url 'user_logout' %}" onclick="return confirm('Are you sure you want to logout?')">Logout</a>
+            </div>
+        </div>
+           
+        {% else %}
+
+        <div class="guest_menu">
+            <a href="{% url 'user_signup' %}">Signup</a>
+            <a href="{% url 'user_login' %}">Login</a>
+        </div>
+        
+        {% endif %}
+    
+    </div>
+    
+    {% if message %}
+        <p style="color: red; text-align: center;"> {{ message }} </p>
+    {% endif %}
+
+    {% if user.is_authenticated %}
+
+        <div class="new_post_button">
+            <a href="{% url 'new_post' %}">
+                <button>New Post +</button>
+            </a>
+        </div>
+
+        <div class="post_window">
+            {% for post in posts %}
+
+                <div class="post">
+
+                    {% if post.user == user %}
+                        <div id="post_options">
+                            <a href="{% url 'delete_post' post.id %}" onclick="return confirm('Are you sure you want to delete this post?');">
+                                <button>Delete</button>
+                            </a>
+
+                            <a href="{% url 'edit_post' post.id %}">
+                                <button>Edit</button>
+                            </a>
+                        </div>
+                    {% endif %}
+
+                    <h2 id="topic"> {{post.topic}} </h2>
+                    <h6 id="time"> Last Updated : {{post.updatetime}} </h6>
+                    <br/>
+                    <p id="content"> {{post.content}} </p>
+                    <h5 id="writer"> Posted by {{post.user}} </h5>
+                
+                </div>
+            {% endfor %}
+        </div>
+
+    {% else %}
+    <div class="guest_warning">
+        <p>Please <a href="{% url 'user_login' %}">Login</a> to continue</p>
+    </div>
+    {% endif %}
+    <hr>
+    <p style="margin: 0; text-align: center;">MindFrame &middot; 2024</p>
+</body>
+
+<script>
+
+</script>
+</html>

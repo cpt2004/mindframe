@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Your Post</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}"></head>
+<body>
+    <div class="header">
+        <div class="title">
+            <a href="{% url 'index' %}"><h1>MindFrame</h1></a>
+            <p>"Framing Ideas, One Thought at a Time"</p>        
+        </div>
+    </div>
+    
+    {% if user.is_authenticated %}
+
+    <form id="editPost" action="{% url 'edit_post' post.id %}" method="POST">
+
+        {% csrf_token %}
+
+
+        <label for="topic">Topic</label> <br/>
+        <input type="text" id="topic" name="topic" value="{{ post.topic }}" required/> <br/><br/>
+
+        <label for="blog_content">Content</label> <br/>
+        <textarea id="blog_content" name="blog_content" required> {{ post.content }} </textarea> <br/><br/>
+
+        <input type="submit"> <br>
+
+    </form>
+    
+    <a href="{% url 'index' %}"><button>Cancel</button></a>
+
+    {% else %}
+
+        <h1>Create Your Blog Post by Logging in <a href="{% url 'user_login' %}">here</a></h1>
+
+    {% endif %}
+</body>
+</html>

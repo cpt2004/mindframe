@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Login</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div class="header">
+        <div class="title">
+            <a href="{% url 'index' %}"><h1>MindFrame</h1></a>
+            <p>"Framing Ideas, One Thought at a Time"</p>        
+        </div>
+    </div>
+
+    <div class="login_section">
+
+        <h1>Login</h1>
+
+        <form id="login_form" action="" method="POST">
+
+            {% csrf_token %}
+
+            {% if message %}
+                <p style="color: red; text-align: center;"> {{ message }} </p>
+            {% endif %}
+            <div>
+                <label for="username">Username</label> <br/>
+                <input type="text" id="username" name="username" required/>
+            </div>
+
+            <div>
+                <label for="password">Password</label> <br/>
+                <input type="password" id="password" name="password" required/>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+        
+        <p>Dont have an account ? <a href="{% url 'user_signup' %}">Signup</a></p>
+
+    </div>
+    <hr>
+    <p style="margin: 0; text-align: center;">MindFrame &middot; 2024</p>
+</body>
+</html>
