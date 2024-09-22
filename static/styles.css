@@ -169,7 +169,7 @@ body{
     }
 }
 
-.login_section, .signup_section, .new_post_section{
+.login_section, .signup_section, .new_post_section, .edit_post_section{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -188,26 +188,40 @@ body{
             border: solid #424242 1px;
             border-radius: 8px;
         }
-        button{
-            background-color: #424242;
-            padding: 2vmax 1vmax 2vmax 1vmax ;
-            border: #424242 solid 2px;
+
+        textarea{
+            height: 6vmax;
+            width: 30vmax;
+            border: solid #424242 1px;
             border-radius: 8px;
-            color: #F5F5F5;
-            transition: all 0.5s;
-            cursor: pointer;
         }
-        button:hover{
-            background-color: #F5F5F5;
-            color: #424242;
-            border: #424242 dotted 2px;
-            border-radius: 8px;
+
+        .edit_post_button{
+            display: flex;
+            justify-content: space-between;
+            button{
+                width: 10vmax;
+                background-color: #424242;
+                padding: 1vmax 1vmax 1vmax 1vmax ;
+                border: #424242 solid 2px;
+                border-radius: 8px;
+                color: #F5F5F5;
+                transition: all 0.5s;
+                cursor: pointer;
+            }
+
+            button:hover{
+                background-color: #F5F5F5;
+                color: #424242;
+                border: #424242 dotted 2px;
+                border-radius: 8px;
+            }
         }
     }
 }
 
 @media only screen and (min-width: 768px) {
-    .login_section, .signup_section, .new_post_section{
+    .login_section, .signup_section, .new_post_section, .edit_post_section{
         form{
             gap: 2vw;
             padding: 5vmax;
@@ -215,7 +229,13 @@ body{
                 height: 3vmax;
                 width: 20vmax;
             }
-            button{
+
+            textarea{
+                height: 3vmax;
+                width: 20vmax;
+            }
+
+            #cancel_button, button{
                 padding: 1vmax 1vmax 1vmax 1vmax ;
             }
         }

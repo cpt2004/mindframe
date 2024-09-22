@@ -15,23 +15,28 @@
     </div>
     
     {% if user.is_authenticated %}
+    <div class="edit_post_section">
+        <form action="{% url 'edit_post' post.id %}" method="POST">
 
-    <form id="editPost" action="{% url 'edit_post' post.id %}" method="POST">
+            {% csrf_token %}
 
-        {% csrf_token %}
+            <div>
+                <label for="topic">Topic</label> <br/>
+                <input type="text" id="topic" name="topic" value="{{ post.topic }}" required/>
+            </div>
 
+            <div>
+                <label for="blog_content">Content</label> <br/>
+                <textarea id="blog_content" name="blog_content" required> {{ post.content }} </textarea>
+            </div>
 
-        <label for="topic">Topic</label> <br/>
-        <input type="text" id="topic" name="topic" value="{{ post.topic }}" required/> <br/><br/>
-
-        <label for="blog_content">Content</label> <br/>
-        <textarea id="blog_content" name="blog_content" required> {{ post.content }} </textarea> <br/><br/>
-
-        <input type="submit"> <br>
-
-    </form>
-    
-    <a href="{% url 'index' %}"><button>Cancel</button></a>
+            <div class="edit_post_button">
+                <button type="submit">Submit</button>
+            </div>
+            <a href="{% url 'index' %}"><button>Cancel</button></a>
+        </form>
+        
+    </div>
 
     {% else %}
 
