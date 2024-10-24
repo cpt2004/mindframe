@@ -57,7 +57,7 @@
 
         <div class="post_window">
             {% for post in posts %}
-
+                <hr>
                 <div class="post">
 
                     {% if post.user == user %}
@@ -74,7 +74,6 @@
 
                     <h2 id="topic"> {{post.topic}} </h2>
                     <h6 id="time"> Last Updated : {{post.updatetime}} </h6>
-                    <br/>
                     <p id="content"> {{post.content}} </p>
                     <h5 id="writer"> Posted by {{post.user}} </h5>
                 

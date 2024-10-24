@@ -8,236 +8,40 @@
 } */
 
 :root{
-    --background: #F5F5F5;
-    --primary: #48CFCb;
-    --secondary: #229799;
-    --accent: #424242;
-    --text: black;
+    --background: #dedede;
+    --primary: #000000;
+    --secondary: #FFFFFF;
 }
 
 body{
-    background-color: var(--background);
     font-family: "DM Sans", sans-serif;
+    background-color: var(--background);
 }
-
-.header{
-    display: flex;
-    justify-content: space-between;
-    background-color: var(--secondary);
-}
-
-@media only screen and (max-width: 768px) {
-    .header{
-        flex-direction: column;
-    }
-}
-
-
 
 .title{
-    padding: 1vmax 0 1vmax 1vmax;
     a{
-        text-decoration: none;
-    }
-
-    h1{
         all: unset;
-        color: black;
-        font-size: 4vw;
-        font-weight: bold;
+
+        h1{
+            text-align: center;
+            margin: 0;
+        }
     }
 
     p{
+        text-align: center;
         margin: 0;
-        font-size: 2vw;
-        font-weight: 300;
-        color: var(--text);
     }
+
 }
 
-.user_menu{
-    padding: 1vmax 1vmax 1vmax 0;
-    div,p{
-        display: flex;
-        justify-content: flex-end;
-        gap: 2vw;
-    }
-    a{
-        color: black;
-    }
-}
-
-.guest_menu{
-    padding: 1vmax 1vmax 1vmax 0;
-    display: flex;
-    justify-content: flex-end;
-    gap: 2vw;
-
-    a{
-        color: black;
-    }
-}
-
-.new_post_button{
-    padding: 1vmax 0 1vmax 1vmax;
-    
-    a{
-        cursor: pointer;
-    }
-
-    button{
-        padding: 0.5vmax 1vmax 0.5vmax 1vmax;
-        border: solid var(--accent) 2px;
-        border-radius: 8px;
-        background-color: var(--accent);
-        color: white;
-        transition: all 0.6s;
-    }
-    button:hover{
-        background-color: var(--background);
-        color: var(--accent);
-        border: dotted var(--accent) 2px;
-    }
-}
-
-.post_window{
+.login_section{
+    min-width: 270px;
+    max-width: 30vw;
+    border-radius: 6px;
+    padding: 1vmax 1vmax 1vmax 1vmax;
+    box-shadow: white 0 0 25px 5px ;
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.post{
-    border: solid black 2px;
-    border-radius: 8px;
-    padding: 1vmax;
-    margin: 1vmax 0 1vmax 0;
-    width: 80vw;
-    display: flex;
-    flex-direction: column;
-    gap: 0 0;
-
-    #topic{
-        margin: 0;
-        word-break: keep-all;
-    }
-    #time{
-        margin: 0;
-    }
-    #content{
-        all: unset;
-        word-break: break-all;
-    }
-    #writer{
-        margin: 0;
-        align-self: flex-end;
-    }
-        
-}
-
-#post_options{
-    align-self: flex-end;
-    a{
-        all: unset;
-    }
-    button{
-        all: none;
-        border: #424242 solid 1px;
-        border-radius: 8px;
-        background-color: #424242;
-        color: white;
-        padding: 0.5vw;
-    }
-    button:hover{
-        border: #424242 dotted 1px;
-        border-radius: 8px;
-        background-color: var(--background);
-        color: var(--accent)
-    }
-}
-
-.guest_warning{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 50vh;
-    p{
-        font-size: 3vw;
-        font-weight: 700;
-        a{
-            text-decoration: dotted;
-        }
-    }
-}
-
-.login_section, .signup_section, .new_post_section, .edit_post_section{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    form{
-        display: flex;
-        flex-direction: column;
-        gap: 2vw;
-        border: #424242 solid 2px;
-        border-radius: 10px;
-        padding: 5vmax;
-        input{
-            height: 6vmax;
-            width: 30vmax;
-            border: solid #424242 1px;
-            border-radius: 8px;
-        }
-
-        textarea{
-            height: 6vmax;
-            width: 30vmax;
-            border: solid #424242 1px;
-            border-radius: 8px;
-        }
-
-        .edit_post_button{
-            display: flex;
-            justify-content: space-between;
-            button{
-                width: 10vmax;
-                background-color: #424242;
-                padding: 1vmax 1vmax 1vmax 1vmax ;
-                border: #424242 solid 2px;
-                border-radius: 8px;
-                color: #F5F5F5;
-                transition: all 0.5s;
-                cursor: pointer;
-            }
-
-            button:hover{
-                background-color: #F5F5F5;
-                color: #424242;
-                border: #424242 dotted 2px;
-                border-radius: 8px;
-            }
-        }
-    }
-}
-
-@media only screen and (min-width: 768px) {
-    .login_section, .signup_section, .new_post_section, .edit_post_section{
-        form{
-            gap: 2vw;
-            padding: 5vmax;
-            input{
-                height: 3vmax;
-                width: 20vmax;
-            }
-
-            textarea{
-                height: 3vmax;
-                width: 20vmax;
-            }
-
-            #cancel_button, button{
-                padding: 1vmax 1vmax 1vmax 1vmax ;
-            }
-        }
-    }
 }
